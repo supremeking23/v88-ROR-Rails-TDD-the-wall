@@ -1,0 +1,20 @@
+<% if flash[:notice] %> <% flash[:notice].each do |note| %>
+<p id="notice"><%= note %></p>
+<% end %> <% end %> <% if flash[:error] %> <% flash[:error].each do |note| %>
+<p id="notice"><%= note %></p>
+<% end %> <% end %>
+
+<h2>Post Message</h2>
+
+<form action="/messages/create" method="post">
+	<input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>" />
+	<label>Message</label>
+	<!-- <input type="text" name="user_id" id="message_user_id" value="1" /> -->
+	<textarea name="message" id="message_message_text" cols="30" rows="10"></textarea>
+	<input type="submit" value="Post a Message" />
+</form>
+
+<form action="users/logout" method="POST">
+	<input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>" />
+	<button type="submit">Logout</button>
+</form>
